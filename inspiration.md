@@ -1,5 +1,5 @@
 #Inspiration
-In trying to not reinvent the wheel I searched for a script that would meet the needs of the situation, but at the same time was easy to extend and use for multiple sites. I did not find anything that met all my needs but did find the following scripts / projects that were sources of inspiration for this project.
+In trying to not reinvent the wheel I searched for a script that would meet the needs of the situation, but at the same time was easy to extend and use for multiple sites. I did not find anything that met all my needs but did find the following scripts / projects that were sources of inspiration for this project. Copies of most of these scripts can be found in the [inspiration folder](inspiration/).
 
 1. John E. Herreño - [Keeping your Drupal backups under control](http://jeh3.net/keeping-your-drupal-backups-under-control) - [smartbackups.sh](inspiration/smartbackups.sh)
 I like the cron integration of this script in that it could be used for multiple sites.
