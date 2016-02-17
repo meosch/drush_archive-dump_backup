@@ -75,6 +75,7 @@ function finished(){
 ###### MAIN PROGRAM #######
 findcommands
 getdrushconfig
+makefilename
 createarchivedump
 scptoremote
 removelocalbackup
