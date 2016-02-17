@@ -18,6 +18,7 @@ localbackupbasepath="/home/username/backups"
 remotebackupbasepath="/home/remoteusername/backups"
 
 ## Remote backup user and server in the form of user@server
+## If you have an alias in your ~/.ssh/config file you can use that here too.
 ## NOTE: We do not plan to handle passwords for login.
 ## You will need to setup passwordless login using ssh keys.
 remotebackupuserandserver="remoteusername@example.org"
