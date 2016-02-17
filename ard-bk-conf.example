@@ -1,0 +1,23 @@
+# Configuration file for Drush archive-dump backup script
+
+## In addition to this configuration file you will need to have a Drush alias file.
+## that contains an alias for the site you want to backup. root and uri must be set in the
+## drush alias file for the domain to backup. See the example file for more info.
+## https://github.com/drush-ops/drush/blob/master/examples/example.aliases.drushrc.php
+## Sample Drush alias 'example' for example.com saved as example.alias.drushrc.php
+
+## $aliases['example'] = array(
+##   'root' => '/path/to/drupal',
+##   'uri' => 'http://example.com',
+## );
+
+## Folder where you want backups to be stored locally.
+localbackupbasepath="/home/username/backups"
+
+## Folder where you want backups to be stored remotely.
+remotebackupbasepath="/home/remoteusername/backups"
+
+## Remote backup user and server in the form of user@server
+## NOTE: We do not plan to handle passwords for login.
+## You will need to setup passwordless login using ssh keys.
+remotebackupuserandserver="remoteusername@example.org"
