@@ -79,4 +79,4 @@ makefilename
 createarchivedump
 scptoremote
 removelocalbackup
-finished # Only used for local testing.
+#finished # Only used for local testing.
