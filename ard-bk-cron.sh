@@ -6,8 +6,9 @@
 # Drupal Website. It is intended to be scheduled to run by cron.
 PS4=':${LINENO} + ' # For development, next line too
 #set -x
+scriptdir=$(dirname "$BASH_SOURCE")
 # Get configuration file
-source ard-bk-conf
+source ${scriptdir}ard-bk-conf
 
 # Console colors
 red='\033[0;31m'     # ${red}
