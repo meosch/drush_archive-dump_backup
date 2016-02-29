@@ -5,10 +5,10 @@
 # This script is used to make a archive-dump of the files and database for a
 # Drupal Website. It is intended to be scheduled to run by cron.
 PS4=':${LINENO} + ' # For development, next line too
-#set -x
+set -x
 scriptdir=$(dirname "$BASH_SOURCE")
 # Get configuration file
-source ${scriptdir}ard-bk-conf
+source ${scriptdir}/ard-bk-conf
 
 # Console colors
 red='\033[0;31m'     # ${red}
