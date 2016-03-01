@@ -58,7 +58,7 @@ function makefilename(){
 }
 
 function createarchivedump(){
-  ${drush} ${drushalias} archive-dump --destination=${localbackupbasepath}/${filename}
+  ${drush} ${drushalias} archive-dump --destination=${localbackupbasepath}/${filename} --tar-options="-z"
 }
 
 function scptoremote(){
