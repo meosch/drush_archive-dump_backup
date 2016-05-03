@@ -5,7 +5,7 @@
 # This script is used to make a archive-dump of the files and database for a
 # Drupal Website. It is intended to be scheduled to run by cron.
 PS4=':${LINENO} + ' # For development, next line too
-set -x
+#set -x
 scriptdir=$(dirname "$BASH_SOURCE")
 # Get configuration file
 source ${scriptdir}/ard-bk-conf
@@ -59,11 +59,14 @@ function makefilename(){
 }
 
 function createarchivedump(){
-  ${drush} ${drushalias} archive-dump --destination=${localbackupbasepath}/${filename} --tar-options="-z"
+  ${drush} ${drushalias} archive-dump --destination=${localbackupbasepath}/${filename} --overwrite
 }
 
 function scptoremote(){
-  scp ${localbackupbasepath}/${filename} ${remotebackupuserandserver}:${remotebackupbasepath}/${filename}
+set -x
+while true; do command scp ${localbackupbasepath}/${filename} ${remotebackupuserandserver}:${remotebackupbasepath}/${filename}; [ $? -ne 255 ] && break || sleep 5; 
+done
+#  scp ${localbackupbasepath}/${filename} ${remotebackupuserandserver}:${remotebackupbasepath}/${filename}
 }
 
 function removelocalbackup(){
