@@ -35,9 +35,9 @@ function getdrushconfig(){
 ## https://github.com/drush-ops/drush/blob/master/examples/example.aliases.drushrc.php
 
 # Domain name of website to backup
-  domainname=$(drush sa ${drushalias} --fields=uri --field-labels=0 --format=list)
+  domainname=$(${drush} sa ${drushalias} --fields=uri --field-labels=0 --format=list)
 # Path of the webroot of the Drupal website to backup
-  drupalwebroot=$(drush sa ${drushalias} --fields=root --field-labels=0 --format=list)
+  drupalwebroot=$(${drush} sa ${drushalias} --fields=root --field-labels=0 --format=list)
 }
 
 function makefilename(){
