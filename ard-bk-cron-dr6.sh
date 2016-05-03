@@ -63,7 +63,8 @@ function createarchivedump(){
 }
 
 function scptoremote(){
-while true; do command scp ${localbackupbasepath}/${filename} ${remotebackupuserandserver}:${remotebackupbasepath}/${filename}; [ $? -ne 255 ] && break || sleep 5; 
+set -x
+while true; do command scp ${localbackupbasepath}/${filename} ${remotebackupuserandserver}:${remotebackupbasepath}/${filename}; [ $? -eq 0 ] && break || sleep 5; 
 done
 }
 
