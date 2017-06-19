@@ -24,11 +24,20 @@ if [ ! -n "$1" ] ; then
 fi
 drushalias="$1"
 drushversion="$2"
+phpversion="$3"
 
 function drushversion(){
 # Do we need a special version of Drush or should we use the default?
-if [ -z ${var+x} ]; then
+if [ -z ${2+x} ]; then
   findcommands
+fi
+}
+
+function phpversion(){
+ if [ -z ${3+x} ]; then
+   if [ !-z "${defaultpathtophp+x}" ]; then
+     pathtophp="${defaultpathtophp}"
+   fi
 fi
 }
 
