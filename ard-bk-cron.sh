@@ -23,6 +23,13 @@ if [ ! -n "$1" ] ; then
   exit
 fi
 drushalias="$1"
+drushversion="$2"
+
+function drushversion(){
+# Do we need a special version of Drush or should we use the default?
+if [ -z ${var+x} ]; then
+  findcommands
+fi
 
 function findcommands(){
 # Where is drush?
@@ -75,7 +82,7 @@ function finished(){
   echo -e "${yellow}>>>${NC} All done archiving and transfering ${yellow}${domainname}${NC}."
 }
 ###### MAIN PROGRAM #######
-findcommands
+drushversion
 getdrushconfig
 makefilename
 createarchivedump
