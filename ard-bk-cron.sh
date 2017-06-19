@@ -45,14 +45,10 @@ if [ -n "${drushversion}" ]; then
     ;;
     6)
     drush="${drush6}"
-    *)
-      echo "Drush version not found!"
-      exit 1
     ;;
   esac
   if [ -z ${drush} ]; then
-    echo "Drush version not found (2)!"
-    exit
+    drush="${defaultdrushversion}"
   fi
 else
   findcommands
