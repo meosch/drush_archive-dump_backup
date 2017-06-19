@@ -8,13 +8,13 @@ PS4=':${LINENO} + ' # For development, next line too
 #set -x
 scriptdir=$(dirname "$BASH_SOURCE")
 # Get configuration files
-if [ -f "${scriptd/ard-bk.conf" ]; then
+if [ -f "${scriptdir}/ard-bk.conf" ]; then
   source ${scriptdir}/ard-bk.conf
 fi
-if [ -f "${scriptd/drushversion.conf" ]; then
+if [ -f "${scriptdir}/drushversion.conf" ]; then
   source ${scriptdir}/drushversions.conf
 fi
-if [ -f "${scriptd/phpversions.conf" ]; then
+if [ -f "${scriptdir}/phpversions.conf" ]; then
   source ${scriptdir}/phpversions.conf
 fi
 # Console colors
@@ -48,7 +48,7 @@ if [ -z ${2+x} ]; then
     *)
       echo "Drush version not found"
       exit 1
-      ;;
+    ;;
   esac
 fi
 }
