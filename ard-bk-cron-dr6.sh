@@ -8,7 +8,7 @@ PS4=':${LINENO} + ' # For development, next line too
 #set -x
 scriptdir=$(dirname "$BASH_SOURCE")
 # Get configuration file
-source ${scriptdir}/ard-bk-conf
+source ${scriptdir}/ard-bk-conf-dr6
 
 # Console colors
 red='\033[0;31m'     # ${red}
