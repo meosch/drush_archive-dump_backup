@@ -30,6 +30,8 @@ function drushversion(){
 if [ -z ${var+x} ]; then
   findcommands
 fi
+}
+
 
 function findcommands(){
 # Where is drush?
