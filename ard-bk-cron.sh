@@ -35,9 +35,7 @@ phpversion="$3"
 
 function drushversion(){
 # Do we need a special version of Drush or should we use the default?
-if [ -z "${drushversion+x}" ]; then
-  findcommands
-  else
+if [ -n "${drushversion}" ]; then
   case "${drushversion}" in
     7)
     drush="${drush7}"
@@ -50,6 +48,8 @@ if [ -z "${drushversion+x}" ]; then
       exit 1
     ;;
   esac
+else
+  findcommands
 fi
 }
 
