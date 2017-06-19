@@ -11,7 +11,7 @@ scriptdir=$(dirname "$BASH_SOURCE")
 if [ -f "${scriptdir}/ard-bk.conf" ]; then
   source ${scriptdir}/ard-bk.conf
 fi
-if [ -f "${scriptdir}/drush-version.conf" ]; then
+if [ -f "${scriptdir}/drush-versions.conf" ]; then
   source ${scriptdir}/drush-versions.conf
 fi
 if [ -f "${scriptdir}/php-versions.conf" ]; then
