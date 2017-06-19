@@ -58,12 +58,13 @@ function phpversion(){
     if [ -n "${defaultpathtophp}" ]; then
       pathtophp="${defaultpathtophp}"
     fi
+  else
+    pathtophp=$phpversion
   fi
-  if [ -n "${pathtophp}" ]; then
-    export DRUSH_PHP="${pathtophp}"
+  if [ -n ${!pathtophp} ]; then
+    export DRUSH_PHP=${!pathtophp}
   fi 
 }
-
 
 function findcommands(){
 # Where is drush?
