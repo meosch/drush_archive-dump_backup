@@ -60,7 +60,7 @@ function phpversion(){
     fi
   fi
   if [ !-z "${pathtophp+x}" ]; then
-    export DRUSH_PHP=\""${pathtophp}"\"
+    export DRUSH_PHP="${pathtophp}"
   fi 
 }
 
