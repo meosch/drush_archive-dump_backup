@@ -56,11 +56,11 @@ fi
 function phpversion(){
   if [ -n "${phpversion}" ]; then
     pathtophp=$phpversion
-    export DRUSH_PHP=${pathtophp}  
+    export DRUSH_PHP=${!pathtophp}
   else 
     if [ -n "${defaultpathtophp}" ]; then
       pathtophp="${defaultpathtophp}"
-      export DRUSH_PHP=${!pathtophp}      
+      export DRUSH_PHP=${pathtophp}
     fi
   fi
 }
