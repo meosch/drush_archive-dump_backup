@@ -24,7 +24,7 @@ yellow='\033[1;33m'  # ${yellow}
 NC='\033[0m'         # ${NC} back to Normal Color
 
 # Check options given on the command line
-USAGEMSG="\nI need the Drush Alias of a site to backup. Usage:\n${yellow}$ ${green}ard-bk-cron.sh ${red}@mysite${NC}\n"
+USAGEMSG="\nI need the Drush Alias of a site to backup. Usage:\n${yellow}$ ${green}ard-bk-cron.sh ${red}@mysite${NC} [drush major version number] [php version as defined in php-versions.conf]\n If you want to set a php version you must also set the drush version and in the order in the usage statement above."
 if [ ! -n "$1" ] ; then
   echo -e "$USAGEMSG"
   exit
