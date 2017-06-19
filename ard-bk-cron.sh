@@ -11,11 +11,11 @@ scriptdir=$(dirname "$BASH_SOURCE")
 if [ -f "${scriptdir}/ard-bk.conf" ]; then
   source ${scriptdir}/ard-bk.conf
 fi
-if [ -f "${scriptdir}/drushversion.conf" ]; then
-  source ${scriptdir}/drushversions.conf
+if [ -f "${scriptdir}/drush-version.conf" ]; then
+  source ${scriptdir}/drush-versions.conf
 fi
-if [ -f "${scriptdir}/phpversions.conf" ]; then
-  source ${scriptdir}/phpversions.conf
+if [ -f "${scriptdir}/php-versions.conf" ]; then
+  source ${scriptdir}/php-versions.conf
 fi
 # Console colors
 red='\033[0;31m'     # ${red}
