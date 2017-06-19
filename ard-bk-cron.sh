@@ -37,17 +37,23 @@ function drushversion(){
 # Do we need a special version of Drush or should we use the default?
 if [ -n "${drushversion}" ]; then
   case "${drushversion}" in
-    7)
-    drush="${drush7}"
-    ;;
     8)
     drush="${drush8}"
     ;;
+    7)
+    drush="${drush7}"
+    ;;
+    6)
+    drush="${drush6}"
     *)
-      echo "Drush version not found"
+      echo "Drush version not found!"
       exit 1
     ;;
   esac
+  if [ -z ${drush} ]; then
+    echo "Drush version not found (2)!"
+    exit
+  fi
 else
   findcommands
 fi
