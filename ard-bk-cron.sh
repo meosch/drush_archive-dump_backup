@@ -54,12 +54,12 @@ fi
 }
 
 function phpversion(){
-  if [ -z "${phpversion+x}" ]; then
+  if [ -n "${phpversion}" ]; then
+    pathtophp=$phpversion
+  else 
     if [ -n "${defaultpathtophp}" ]; then
       pathtophp="${defaultpathtophp}"
     fi
-  else
-    pathtophp=$phpversion
   fi
   if [ -n ${!pathtophp} ]; then
     export DRUSH_PHP=${!pathtophp}
