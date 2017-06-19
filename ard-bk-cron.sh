@@ -35,7 +35,7 @@ phpversion="$3"
 
 function drushversion(){
 # Do we need a special version of Drush or should we use the default?
-if [ -z ${2+x} ]; then
+if [ -z ${drushversion+x} ]; then
   findcommands
   else
   case "${drushversion}" in
@@ -54,12 +54,12 @@ fi
 }
 
 function phpversion(){
-  if [ -z ${3+x} ]; then
-    if [ !-z "${defaultpathtophp+x}" ]; then
+  if [ -z ${phpversion+x} ]; then
+    if [ -n "${defaultpathtophp+x}" ]; then
       pathtophp="${defaultpathtophp}"
     fi
   fi
-  if [ !-z "${pathtophp+x}" ]; then
+  if [ -n "${pathtophp+x}" ]; then
     export DRUSH_PHP="${pathtophp}"
   fi 
 }
