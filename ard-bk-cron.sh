@@ -7,9 +7,16 @@
 PS4=':${LINENO} + ' # For development, next line too
 #set -x
 scriptdir=$(dirname "$BASH_SOURCE")
-# Get configuration file
-source ${scriptdir}/ard-bk-conf
-
+# Get configuration files
+if [ -f "${scriptd/ard-bk.conf" ]; then
+  source ${scriptdir}/ard-bk.conf
+fi
+if [ -f "${scriptd/drushversion.conf" ]; then
+  source ${scriptdir}/drushversions.conf
+fi
+if [ -f "${scriptd/phpversions.conf" ]; then
+  source ${scriptdir}/phpversions.conf
+fi
 # Console colors
 red='\033[0;31m'     # ${red}
 green='\033[0;32m'   # ${green}
@@ -30,15 +37,31 @@ function drushversion(){
 # Do we need a special version of Drush or should we use the default?
 if [ -z ${2+x} ]; then
   findcommands
+  else
+  case "${drushversion}" in
+    7)
+    drush="${drush7}"
+    ;;
+    8)
+    drush="${drush8}"
+    ;;
+    *)
+      echo "Drush version not found"
+      exit 1
+      ;;
+  esac
 fi
 }
 
 function phpversion(){
- if [ -z ${3+x} ]; then
-   if [ !-z "${defaultpathtophp+x}" ]; then
-     pathtophp="${defaultpathtophp}"
-   fi
-fi
+  if [ -z ${3+x} ]; then
+    if [ !-z "${defaultpathtophp+x}" ]; then
+      pathtophp="${defaultpathtophp}"
+    fi
+  fi
+  if [ !-z "${pathtophp+x}" ]; then
+    export DRUSH_PHP=\""${pathtophp}"\"
+  fi 
 }
 
 
@@ -94,6 +117,7 @@ function finished(){
 }
 ###### MAIN PROGRAM #######
 drushversion
+phpversion
 getdrushconfig
 makefilename
 createarchivedump
