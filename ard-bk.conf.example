@@ -22,3 +22,12 @@ remotebackupbasepath="/home/remoteusername/backups"
 ## NOTE: We do not plan to handle passwords for login.
 ## You will need to setup passwordless login using ssh keys.
 remotebackupuserandserver="remoteusername@example.org"
+
+## Path to default PHP to used
+## We do this as some jailshells do not run through our .bashrc or .profile files
+## because of this the environmental variable DRUSH_PHP does not get set.
+## We will set it in the script if this variable is set.
+defaultpathtophp="/opt/cpanel/ea-php70/root/usr/bin/php"
+
+## Path to default Drush version if none is given on the command line
+defaultdrushversion="$HOME/.composer/vendor/bin/drush"
