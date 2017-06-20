@@ -1,0 +1,2 @@
+drush7="$HOME/.composer/drush7/vendor/drush/drush/drush"
+drush8="$HOME/.composer/vendor/bin/drush"
