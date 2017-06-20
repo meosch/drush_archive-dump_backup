@@ -46,14 +46,14 @@ if [ -n "${drushversion}" ]; then
     6)
       drush="${drush6}"
     ;;
-    *)
-      if [ -n "${defaultdrushversion}" ]; then
-        getdrushdefault
-      else
-        finddrush
-      fi
-    ;;
   esac
+    getdrushdefault
+else
+  if [ -n "${defaultdrushversion}" ]; then
+    getdrushdefault
+  else
+    finddrush
+  fi
 fi
 }
 
