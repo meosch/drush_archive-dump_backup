@@ -1,1 +1,5 @@
+# Ignore all configuration files.
 *.conf
+
+# Ignore batch script if the user creates one.
+ard-bk-cron-batch.sh
