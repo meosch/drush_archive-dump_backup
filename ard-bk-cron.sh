@@ -46,13 +46,25 @@ if [ -n "${drushversion}" ]; then
     6)
     drush="${drush6}"
     ;;
+    *)
+      echo "Drush version not found!"
+      exit 1
+    ;;
   esac
+    getdrushdefault
+else
+  if [ -n"${defaultdrushversion}" ]; then
+    getdrushdefault
+  else
+    findcommands
+  fi
+fi
+}
+
+function getdrushdefault(){
   if [ -z ${drush} ]; then
     drush="${defaultdrushversion}"
   fi
-else
-  findcommands
-fi
 }
 
 function phpversion(){
