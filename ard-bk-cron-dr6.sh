@@ -8,7 +8,7 @@ PS4=':${LINENO} + ' # For development, next line too
 #set -x
 scriptdir=$(dirname "$BASH_SOURCE")
 # Get configuration file
-source ${scriptdir}/ard-bk-conf-dr6
+source ${scriptdir}/ard-bk-dr6.conf
 
 # Console colors
 red='\033[0;31m'     # ${red}
@@ -42,7 +42,7 @@ function getdrushconfig(){
 }
 
 function makefilename(){
-  #Date and time in the following format to give us the most flexiablity with
+  #Date and time in the following format to give us the most flexibility with
   # keeping and deleting backups.
   # YYYY-mm-dd-WW-X-HHMMSS
   # YYYY = 4 digit year
