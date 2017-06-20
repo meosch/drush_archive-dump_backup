@@ -1,3 +1,5 @@
+### Copy this file to ard-bk.conf Then edit to match your setup
+
 # Configuration file for Drush archive-dump backup script
 
 ## In addition to this configuration file you will need to have a Drush alias file.
