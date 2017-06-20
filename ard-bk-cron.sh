@@ -38,26 +38,22 @@ function drushversion(){
 if [ -n "${drushversion}" ]; then
   case "${drushversion}" in
     8)
-    drush="${drush8}"
+      drush="${drush8}"
     ;;
     7)
-    drush="${drush7}"
+      drush="${drush7}"
     ;;
     6)
-    drush="${drush6}"
+      drush="${drush6}"
     ;;
     *)
-      echo "Drush version not found!"
-      exit 1
+      if [ -n "${defaultdrushversion}" ]; then
+        getdrushdefault
+      else
+        finddrush
+      fi
     ;;
   esac
-    getdrushdefault
-else
-  if [ -n"${defaultdrushversion}" ]; then
-    getdrushdefault
-  else
-    findcommands
-  fi
 fi
 }
 
@@ -79,7 +75,7 @@ function phpversion(){
   fi
 }
 
-function findcommands(){
+function finddrush(){
 # Where is drush?
   drush=$(which drush)
 }
