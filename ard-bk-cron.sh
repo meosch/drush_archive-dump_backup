@@ -123,7 +123,7 @@ function removelocalbackup(){
 
 function finished(){
   echo ""
-  echo -e "${yellow}>>>${NC} All done archiving and transfering ${yellow}${domainname}${NC}."
+  echo -e ">>> All done archiving and transfering ${domainname}."
 }
 ###### MAIN PROGRAM #######
 drushversion
