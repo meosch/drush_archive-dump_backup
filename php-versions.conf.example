@@ -1,0 +1,10 @@
+# Copy this file to php-versions.conf and edit to list your php-versions
+# and the path to the php binary.
+# The variable at the beginning  of each line is what you will type on
+# the command line to select a version of PHP. These cannot start with a number.
+
+php54="/opt/cpanel/ea-php54/root/usr/bin/php"
+php55="/opt/cpanel/ea-php55/root/usr/bin/php"
+php56="/opt/cpanel/ea-php56/root/usr/bin/php"
+php70="/opt/cpanel/ea-php70/root/usr/bin/php"
+php71="/opt/cpanel/ea-php71/root/usr/bin/php"

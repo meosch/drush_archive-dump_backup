@@ -1,0 +1,18 @@
+#!/bin/bash
+# Drush archive-dump backup cron batch
+# MEOS - Frederick Henderson
+# https://github.com/meosch/drush_archive-dump_backup
+# This script is used to create a batch file for make a archive-dump of
+# the files and database for multiple Drupal Websites.
+# It is intended to be scheduled to run by cron.
+PS4=':${LINENO} + ' # For development, next line too
+#set -x
+
+## Copy this file to ard-bk-cron-batch.sh and edit.
+# Add lines below for the Drupal website you want to backup like you
+# would for a cron job.
+# Next add this script as a cron job to backup your sites.
+
+/home/username/bin/drush_archive-dump_backup/ard-bk-cron.sh @website1.live
+/home/username/bin/drush_archive-dump_backup/ard-bk-cron.sh @website2.live 7
+/home/username/bin/drush_archive-dump_backup/ard-bk-cron.sh @website1.live 8 php70

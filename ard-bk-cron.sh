@@ -7,9 +7,16 @@
 PS4=':${LINENO} + ' # For development, next line too
 #set -x
 scriptdir=$(dirname "$BASH_SOURCE")
-# Get configuration file
-source ${scriptdir}/ard-bk-conf
-
+# Get configuration files
+if [ -f "${scriptdir}/ard-bk.conf" ]; then
+  source ${scriptdir}/ard-bk.conf
+fi
+if [ -f "${scriptdir}/drush-versions.conf" ]; then
+  source ${scriptdir}/drush-versions.conf
+fi
+if [ -f "${scriptdir}/php-versions.conf" ]; then
+  source ${scriptdir}/php-versions.conf
+fi
 # Console colors
 red='\033[0;31m'     # ${red}
 green='\033[0;32m'   # ${green}
@@ -17,14 +24,58 @@ yellow='\033[1;33m'  # ${yellow}
 NC='\033[0m'         # ${NC} back to Normal Color
 
 # Check options given on the command line
-USAGEMSG="\nI need the Drush Alias of a site to backup. Usage:\n${yellow}$ ${green}ard-bk-cron.sh ${red}@mysite${NC}\n"
+USAGEMSG="\nI need the Drush Alias of a site to backup. Usage:\n${yellow}$ ${green}ard-bk-cron.sh ${red}@mysite${NC} [drush major version number] [php version as defined in php-versions.conf]\n If you want to set a php version you must also set the drush version and in the order in the usage statement above."
 if [ ! -n "$1" ] ; then
   echo -e "$USAGEMSG"
   exit
 fi
 drushalias="$1"
+drushversion="$2"
+phpversion="$3"
 
-function findcommands(){
+function drushversion(){
+# Do we need a special version of Drush or should we use the default?
+if [ -n "${drushversion}" ]; then
+  case "${drushversion}" in
+    8)
+      drush="${drush8}"
+    ;;
+    7)
+      drush="${drush7}"
+    ;;
+    6)
+      drush="${drush6}"
+    ;;
+  esac
+    getdrushdefault
+else
+  if [ -n "${defaultdrushversion}" ]; then
+    getdrushdefault
+  else
+    finddrush
+  fi
+fi
+}
+
+function getdrushdefault(){
+  if [ -z ${drush} ]; then
+    drush="${defaultdrushversion}"
+  fi
+}
+
+function phpversion(){
+  if [ -n "${phpversion}" ]; then
+    pathtophp=$phpversion
+    export DRUSH_PHP=${!pathtophp}
+  else 
+    if [ -n "${defaultpathtophp}" ]; then
+      pathtophp="${defaultpathtophp}"
+      export DRUSH_PHP=${pathtophp}
+    fi
+  fi
+}
+
+function finddrush(){
 # Where is drush?
   drush=$(which drush)
 }
@@ -72,13 +123,14 @@ function removelocalbackup(){
 
 function finished(){
   echo ""
-  echo -e "${yellow}>>>${NC} All done archiving and transfering ${yellow}${domainname}${NC}."
+  echo -e ">>> All done archiving and transfering ${domainname}."
 }
 ###### MAIN PROGRAM #######
-findcommands
+drushversion
+phpversion
 getdrushconfig
 makefilename
 createarchivedump
 scptoremote
 removelocalbackup
-#finished # Only used for local testing.
+finished
