@@ -1,0 +1,11 @@
+###### CONFIGURATION ######
+
+# Backups Directory
+backupsdirectory="/home/remotebackups/backups/"
+
+# Desired ages to keep (in days) separated by a comma
+# Currently keeping weekly backups for 5 weeks and then two more 28 days apart (monthly)
+ages="1,7,14,21,28,56,84"
+
+# Array of websites with backups in this folder to process.
+websitesArray=(example.com example.org)
