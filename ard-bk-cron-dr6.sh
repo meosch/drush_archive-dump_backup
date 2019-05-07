@@ -54,7 +54,7 @@ function makefilename(){
   # MM = 2 digit minutes
   # SS = 2 digit seconds
 
-  date_time=$(date "+%Y-%m-%d-%U-%u-%H%M%S")
+  date_time=$(date "+%Y-%m-%d-%V-%u-%H%M%S")
   filename=${domainname}-${date_time}.tar.gz
 }
 
